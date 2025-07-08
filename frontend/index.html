@@ -1,27 +1,13 @@
-<!-- frontend/index.html -->
-<!DOCTYPE html>
-<html>
-<body>
-  <h1>Chat</h1>
-  <input id="messageInput" type="text" />
-  <button onclick="sendMessage()">Enviar</button>
-  <ul id="messages"></ul>
-
-  <script>
-    const ws = new WebSocket("ws://localhost:8000/ws/chat");
-
-    ws.onmessage = function(event) {
-      const messages = document.getElementById("messages");
-      const li = document.createElement("li");
-      li.textContent = event.data;
-      messages.appendChild(li);
-    };
-
-    function sendMessage() {
-      const input = document.getElementById("messageInput");
-      ws.send(input.value);
-      input.value = "";
-    }
-  </script>
-</body>
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chat App</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
