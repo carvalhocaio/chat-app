@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
-import { Input } from './components/ui/input'
 import { Button } from './components/ui/button'
+import { Input } from './components/ui/input'
 
 export function App() {
   const [message, setMessage] = useState('')
@@ -33,10 +33,10 @@ export function App() {
       <div className="space-y-2">
         <div className="flex gap-2">
           <Input
-            placeholder="Digite sua mensagem..."
-            value={message}
             onChange={(e) => setMessage(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
+            placeholder="Digite sua mensagem..."
+            value={message}
           />
           <Button onClick={sendMessage}>Enviar</Button>
         </div>
@@ -44,7 +44,8 @@ export function App() {
 
       <div className="h-64 overflow-y-auto rounded-xl border bg-gray-100 p-4">
         {messages.map((msg, i) => (
-          <div key={i} className="py-1 text-gray-800 text-sm">
+          // biome-ignore lint/suspicious/noArrayIndexKey: only dev
+          <div className="py-1 text-gray-800 text-sm" key={i}>
             {msg}
           </div>
         ))}
