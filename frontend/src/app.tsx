@@ -42,10 +42,10 @@ export function App() {
         </div>
       </div>
 
-      <div className="h-64 overflow-y-auto rounded-xl border bg-gray-100 p-4">
+      <div className="h-64 overflow-y-auto rounded-xl border bg-zinc-900 p-4">
         {messages.map((msg, i) => (
           // biome-ignore lint/suspicious/noArrayIndexKey: only dev
-          <div className="py-1 text-gray-800 text-sm" key={i}>
+          <div className="py-1 text-gray-400 text-sm" key={i}>
             {msg}
           </div>
         ))}
